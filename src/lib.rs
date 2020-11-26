@@ -3,13 +3,11 @@ extern crate bytes;
 
 use bytes::{BufMut, BytesMut, Bytes, Buf};
 
-pub mod codec {
-    pub fn get_u32_little_end(arr: &[u8]) -> u32 {
-        ((arr[0] as u32) <<  0) +
-            ((arr[1] as u32) <<  8) +
-            ((arr[2] as u32) << 16) +
-            ((arr[3] as u32) << 24)
-    }
+fn get_u32_little_end(arr: &[u8]) -> u32 {
+    ((arr[0] as u32) <<  0) +
+        ((arr[1] as u32) <<  8) +
+        ((arr[2] as u32) << 16) +
+        ((arr[3] as u32) << 24)
 }
 
 fn hash(data: &Bytes, seed: u32) -> u32 {
@@ -20,7 +18,7 @@ fn hash(data: &Bytes, seed: u32) -> u32 {
     let mut i = 0;
 
     while i < n {
-        h += codec::get_u32_little_end(&data[i..]) as u32;
+        h = (h as u64 + get_u32_little_end(&data[i..]) as u64) as u32;
         h = (h as u64 * m as u64) as u32;
         h ^= (h >> 16);
         i += 4;
