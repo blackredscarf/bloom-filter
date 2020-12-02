@@ -8,4 +8,5 @@ edition = "2018"
 
 [dependencies]
 bloomf = { path="../" }
+#bloomf = "0.1.0"
 bytes="0.6.0"

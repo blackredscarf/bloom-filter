@@ -2,6 +2,12 @@
 Bloom filter is a data structure that can check the element whether exists in a certain collection or not. But It probably checks in error and we call those false positive matches. More generally, average fewer than 10 bits per element are required for a 1% false positive probability, independent of the size or number of elements in the set.
 
 ## Usage
+Add this to your `Cargo.toml`:
+```toml
+[dependencies]
+bloomf = "0.1.0"
+```
+Example:
 ```rust
 let mut bf = BloomFilter::new(10);
 let b1 = Bytes::from(&b"hello"[..]);
