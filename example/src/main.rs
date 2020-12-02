@@ -1,6 +1,6 @@
 extern crate bytes;
 use bytes::Bytes;
-use bloom_filter::BloomFilter;
+use bloomf::BloomFilter;
 
 fn main() {
     let mut bf = BloomFilter::new(10);

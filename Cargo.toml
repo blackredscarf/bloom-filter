@@ -1,5 +1,5 @@
 [package]
-name = "bloom-filter"
+name = "bloomf"
 version = "0.1.0"
 license = "MIT"
 description = "Bloom Filter"
